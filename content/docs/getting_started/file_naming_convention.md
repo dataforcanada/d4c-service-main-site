@@ -15,7 +15,7 @@ We are open to feedback on the current file naming convention.
 ## Background
 
 {{< callout type="important" >}}
-  The concepts listed in [terms](/docs/getting_started/terms/#1-statistical-data-package) are key to working with Statistical and Census data from Statistics Canada.
+  The concepts listed in [terms](/docs/getting_started/terminology) are key to working with Statistical and Census data from Statistics Canada.
 {{< /callout >}}
 
 ## 1. The Current Schema
