@@ -8,14 +8,16 @@ flowchart TD
         Statistical@{ shape: lean-l}
         Foundation@{ shape: lean-l}
         Orthoimagery@{ shape: lean-l}
+        style Orthoimagery fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
         EnvironmentClimate@{ shape: lean-l, label: "Environment, Climate, & Health"}
-        style EnvironmentClimate fill:#FBC02D,stroke:#F9A825,color:#000000
+        style EnvironmentClimate fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
         FieldImagery@{ shape: lean-l, label: "Field Imagery"}
-        style FieldImagery fill:#FBC02D,stroke:#F9A825,color:#000000
+        style FieldImagery fill:#66BB6A,stroke:#2E7D32,color:#000000
         %% My little secret, this is one of my highest priorities, but I have to learn more about how Internet Archive does the job and improve it. They do it way too inneficiently (ex. capture a webpage hundreds of times per day), and they don't allow capturing from multiple locations. A webpage can be served differently depending on IP level data, corporate proxies, when you control certificates, etc
         WebCorpus@{ shape: lean-l, label: "Web Corpus"}
         style WebCorpus fill:#66BB6A,stroke:#2E7D32,color:#000000
         Elevation@{ shape: lean-l}
+        style Elevation fill:#FBC02D,stroke:#F9A825,color:#000000
     end
 
     %% ---------------------------------------------------------
@@ -120,12 +122,13 @@ flowchart TD
     a3@{animate: true, animation: slow}
     EnvironmentClimate a5@<--> DataforCanadaPackagesCollection
     a5@{animate: true, animation: fast}
-    FieldImagery a4@<--> DataforCanadaPackagesCollection
-    a4@{animate:true, animation: fast}
     Elevation a6@<--> DataforCanadaPackagesCollection
     a6@{animate: true, animation: slow}
     WebCorpus a7@<--> DataforCanadaPackagesCollection
     a7@{animate: true, animation: fast}
+    %% Last as there are potential complications with implementation
+    FieldImagery a4@<--> DataforCanadaPackagesCollection
+    a4@{animate:true, animation: fast}
 
     DataforCanadaPackagesCollection a10@--> df
     a10@{animate: true, animation: fast}
@@ -199,8 +202,6 @@ style Systems fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
 style Metadata fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
 style Statistical fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
 style Foundation fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
-style Orthoimagery fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
-style Elevation fill:#66BB6A,stroke:#2E7D32,color:#000000
 
 %%style df fill:#D32F2F,stroke:#8E0000,color:#FFFFFF
 style sot fill:#EF9A9A,stroke:#C62828,color:#000000
