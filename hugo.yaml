@@ -29,13 +29,16 @@ outputs:
   # TODO: Check why home does not support markdown output
   # I am getting a WARN found no layout file for "markdown" for kind "home"
   home: [html, rss]
-  page: [html, rss, markdown]
+  #page: [html, rss, markdown]
+  page: [html, rss]
   rss: [rss]
-  section: [html, rss, markdown]
+  #section: [html, rss, markdown]
+  section: [html, rss]
   # TODO: Check why this does not support markdown output
   # I am getting a WARN found no layout file for "markdown" for kind "taxonomy"
   taxonomy: [html, rss]
-  term: [html, rss, markdown]
+  #term: [html, rss, markdown]
+  term: [html, rss]
 
 menu:
   main:
