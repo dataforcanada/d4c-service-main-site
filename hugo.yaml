@@ -86,7 +86,9 @@ params:
       enable: true
       links:
         - name: "Ask AI"
-          url: "https://chatgpt.com/?q=Help+me+understand+this+documentation:+{markdown_url}"
+          # TODO: Turn this back on when I have markdown working with the various AI models. In the meantime, just pass the URL to the models, and Cloudflare will convert to markdown
+          #url: "https://chatgpt.com/?q=Help+me+understand+this+documentation:+{markdown_url}+read+the+url+and+any+other+urls+referenced+on+the+page"
+          url: "https://chatgpt.com/?q=Help+me+understand+this+documentation:+{url}+read+the+url+and+any+other+urls+referenced+on+the+page"
           icon: "sparkles"
 
   navbar:
