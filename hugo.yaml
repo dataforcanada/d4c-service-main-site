@@ -26,12 +26,12 @@ enableInlineShortcodes: true
 enableEmoji: true
 
 outputs:
-  home: [html, rss]
-  page: [html, rss]
+  home: [html, rss, markdown]
+  page: [html, rss, markdown]
   rss: [rss]
-  section: [html, rss]
-  taxonomy: [html, rss]
-  term: [html, rss]
+  section: [html, rss, markdown]
+  taxonomy: [html, rss, markdown]
+  term: [html, rss, markdown]
 
 menu:
   main:
@@ -80,14 +80,13 @@ params:
     width: full
     contextMenu:
       enable: true
-      # TODO: Fix the markdown
       links:
         - name: "Open in ChatGPT"
           url: "https://chatgpt.com/?q=Help+me+understand+this+documentation:+{url}+read+the+url+and+any+other+urls+referenced+on+the+page"
           icon: "sparkles"
-        - name: "Open in Claude"
-          url: "https://claude.ai/new?q=Help+me+understand+this+documentation:+{url}+read+the+url+and+any+other+urls+referenced+on+the+page"
-          icon: "bolt"
+        #- name: "Open in Claude"
+        #  url: "https://claude.ai/new?q=Help+me+understand+this+documentation:+{url}+read+the+url+and+any+other+urls+referenced+on+the+page"
+        #  icon: "bolt"
 
   navbar:
     displayTitle: true
