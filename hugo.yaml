@@ -26,18 +26,11 @@ enableInlineShortcodes: true
 enableEmoji: true
 
 outputs:
-  # TODO: Check why home does not support markdown output
-  # I am getting a WARN found no layout file for "markdown" for kind "home"
   home: [html, rss]
-  #page: [html, rss, markdown]
   page: [html, rss]
   rss: [rss]
-  #section: [html, rss, markdown]
   section: [html, rss]
-  # TODO: Check why this does not support markdown output
-  # I am getting a WARN found no layout file for "markdown" for kind "taxonomy"
   taxonomy: [html, rss]
-  #term: [html, rss, markdown]
   term: [html, rss]
 
 menu:
@@ -87,12 +80,14 @@ params:
     width: full
     contextMenu:
       enable: true
+      # TODO: Fix the markdown
       links:
-        - name: "Ask AI"
-          # TODO: Turn this back on when I have markdown working with the various AI models. In the meantime, just pass the URL to the models, and Cloudflare will convert to markdown
-          #url: "https://chatgpt.com/?q=Help+me+understand+this+documentation:+{markdown_url}+read+the+url+and+any+other+urls+referenced+on+the+page"
+        - name: "Open in ChatGPT"
           url: "https://chatgpt.com/?q=Help+me+understand+this+documentation:+{url}+read+the+url+and+any+other+urls+referenced+on+the+page"
           icon: "sparkles"
+        - name: "Open in Claude"
+          url: "https://claude.ai/new?q=Help+me+understand+this+documentation:+{url}+read+the+url+and+any+other+urls+referenced+on+the+page"
+          icon: "bolt"
 
   navbar:
     displayTitle: true
