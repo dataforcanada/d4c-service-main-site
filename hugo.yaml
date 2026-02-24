@@ -26,11 +26,11 @@ enableInlineShortcodes: true
 enableEmoji: true
 
 outputs:
-  home: [html, rss, markdown]
+  home: [html, rss]
   page: [html, rss, markdown]
   rss: [rss]
   section: [html, rss, markdown]
-  taxonomy: [html, rss, markdown]
+  taxonomy: [html, rss]
   term: [html, rss, markdown]
 
 menu:
@@ -81,12 +81,12 @@ params:
     contextMenu:
       enable: true
       links:
-        - name: "Open in ChatGPT"
+        - name: "Ask ChatGPT"
           url: "https://chatgpt.com/?q=Help+me+understand+this+documentation:+{url}+read+the+url+and+any+other+urls+referenced+on+the+page"
           icon: "sparkles"
-        #- name: "Open in Claude"
-        #  url: "https://claude.ai/new?q=Help+me+understand+this+documentation:+{url}+read+the+url+and+any+other+urls+referenced+on+the+page"
-        #  icon: "bolt"
+        - name: "Ask Claude"
+          url: "https://claude.ai/new?q=Help+me+understand+this+documentation:+{url}+read+the+url+and+any+other+urls+referenced+on+the+page"
+          icon: "puzzle"
 
   navbar:
     displayTitle: true
