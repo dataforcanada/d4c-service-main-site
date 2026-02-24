@@ -81,9 +81,6 @@ params:
     contextMenu:
       enable: true
       links:
-        - name: "DuckDuckGo AI"
-          url: "https://duckduckgo.com/?q=Help+me+understand+this+documentation:+{url}&ia=chat"
-          icon: "shield-check"
         - name: "Ask Perplexity"
           url: "https://www.perplexity.ai/search?q=Help+me+understand+this+documentation:+{url}+read+the+url+and+any+other+urls+referenced+on+the+page"
           icon: "academic-cap"
@@ -93,6 +90,10 @@ params:
         - name: "Ask Claude"
           url: "https://claude.ai/new?q=Help+me+understand+this+documentation:+{url}+read+the+url+and+any+other+urls+referenced+on+the+page"
           icon: "puzzle"
+        # Last because by default it does not work, you need to select a model like GPT
+        - name: "DuckDuckGo AI"
+          url: "https://duckduckgo.com/?q=Help+me+understand+this+documentation:+{url}+read+the+url+and+any+other+urls+referenced+on+the+page"
+          icon: "shield-check"
 
   navbar:
     displayTitle: true
