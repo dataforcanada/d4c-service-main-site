@@ -14,7 +14,7 @@
         "esbenp.prettier-vscode",
         "tamasfe.even-better-toml",
         "budparr.language-hugo-vscode",
-        "google.geminicodeassist"
+        "rooveterinaryinc.roo-cline"
       ]
     }
   },
