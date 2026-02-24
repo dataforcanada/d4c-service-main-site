@@ -7,6 +7,8 @@ sidebar:
 draft: false
 ---
 
+<!-- You know what really grinds my gears? The changing of terminology across space and time. For example, dissemination blocks used to be called blocks-->
+
 ## Terms and Definitions
 
 This document provides a standardized lexicon for the **Data for Canada (D4C)** project, categorized by data package and infrastructure component.
@@ -41,11 +43,25 @@ Standard geographic areas from the 2021 Census of Population hierarchy, as defin
 <!--https://www150.statcan.gc.ca/n1/pub/92-195-x/92-195-x2021001-eng.htm-->
 <!--https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/index-eng.cfm-->
 <!-- Have not been able to find a definition in the 2021 Census Dictionary for country -->
+<!-- Add image from illustrated glossary https://www150.statcan.gc.ca/n1/pub/92-195-x/2021001/geo/prov/prov-eng.htm -->
 * **Canada:** The highest level of geography, covering the entire country.
-* **[Province or Territory (PR)](https://www150.statcan.gc.ca/n1/pub/92-195-x/2021001/geo/prov/prov-eng.htm):** The primary political-administrative subdivisions of Canada.
-* **[Census Division (CD)](https://www150.statcan.gc.ca/n1/pub/92-195-x/2021001/geo/cd-dr/cd-dr-eng.htm):** A group of neighboring municipalities joined together for the purposes of regional planning and managing common services.
-* **[Census Subdivision (CSD)](https://www150.statcan.gc.ca/n1/pub/92-195-x/2021001/geo/csd-sdr/csd-sdr-eng.htm):** The general term for municipalities or areas treated as municipal equivalents for statistical purposes.
-* **[Federal Electoral District (FED)](https://www150.statcan.gc.ca/n1/pub/92-195-x/2021001/geo/fed-cef/fed-cef-eng.htm):** An area represented by a Member of Parliament in the House of Commons.
+* **[Province or Territory (PR)](https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo038):** "Province" and "territory" refer to the major political units of Canada. Canada is divided into 10 provinces and 3 territories. From a statistical point of view, province and territory are basic areas for which data are tabulated.
+{{< cards >}}
+  {{< card title="Province or Territory (PR)" image="/docs/getting_started/prov2-eng.png" >}}
+{{< /cards >}}
+* **[Census Division (CD)](https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo008):** A group of neighboring municipalities joined together for the purposes of regional planning and managing common services.
+{{< cards >}}
+  {{< card title="Census Division (CD)" image="/docs/getting_started/cd-dr2-eng.png" >}}
+{{< /cards >}}
+* **[Census Subdivision (CSD)](https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo012):** The general term for municipalities or areas treated as municipal equivalents for statistical purposes.
+{{< cards >}}
+  {{< card title="Census Subdivision (CSD)" image="/docs/getting_started/csd-sdr2-eng.png" >}}
+{{< /cards >}}
+<!-- Need to work on this definition, not technically correct-->
+* **[Federal Electoral District (FED)](https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo025):** A federal electoral district (FED) is an area represented by a member of the House of Commons. The federal electoral district boundaries used for the 2021 Census are based on the 2013 Representation Order.
+{{< cards >}}
+  {{< card title="Federal Electoral District (FED)" image="/docs/getting_started/fed-cef2.png" >}}
+{{< /cards >}}
 <!-- TODO: Geographic regions of Canada (GRC). StatCan does not technically provide boundaries, had to create them myself. Add definition, maybe a link to where people can send their feedback on not having official GRC boundaries-->
 
 ### Statistical Areas
