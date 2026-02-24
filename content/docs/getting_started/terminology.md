@@ -66,24 +66,6 @@ Standard geographic areas from the 2021 Census of Population hierarchy, as defin
 
 ### Statistical Areas
 
-* **[Aggregate Dissemination Area (ADA)](https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo053):** An aggregate dissemination area (ADA) is a dissemination geography created for the Census. ADAs cover the entire country and, where possible, have a population between 5,000 and 15,000 based on the previous census population counts. ADAs are created by grouping existing dissemination geographic areas, including census tracts (CTs), census subdivisions (CSDs) or dissemination areas (DAs). ADA boundaries respect provincial, territorial, census division (CD), census metropolitan area (CMA) and census agglomeration (CA) boundaries.
-* **[Census Metropolitan Area (CMA)](https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo009):** A census metropolitan area (CMA) or a census agglomeration (CA) is formed by one or more adjacent municipalities centred on a population centre (known as the core). A CMA must have a total population of at least 100,000 based on data from the current Census of Population Program, of which 50,000 or more must live in the core based on adjusted data from the previous Census of Population Program. To be included in the CMA or CA, other adjacent municipalities must have a high degree of integration with the core, as measured by commuting flows derived from data on place of work from the previous Census Program.
-{{< cards >}}
-  {{< card title="Census Metropolitan Area (CMA)" image="/docs/getting_started/cma-rmr.png" >}}
-{{< /cards >}}
-* **[Census Agglomeration (CA)](https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo009):** Similar to a CMA, but with a core population of at least 10,000. To be included in the CMA or CA, other adjacent municipalities must have a high degree of integration with the core, as measured by commuting flows derived from data on place of work from the previous Census Program.
-* **[Census Tract (CT)](https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo013):** Census tracts (CTs) are small, relatively stable geographic areas that usually have a population of fewer than 7,500 persons, based on data from the previous Census of Population Program. They are located in census metropolitan areas (CMAs) and in census agglomerations (CAs) that had a core population of 50,000 or more in the previous census.
-{{< cards >}}
-  {{< card title="Census Tract (CT)" image="/docs/getting_started/ct-sr_02-eng.png" >}}
-{{< /cards >}}
-* **[Dissemination Area (DA)](https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo021):** A dissemination area (DA) is a small, relatively stable geographic unit composed of one or more adjacent dissemination blocks with an average population of 400 to 700 persons based on data from the previous Census of Population Program. It is the smallest standard geographic area for which all census data are disseminated. DAs cover all the territory of Canada.
-{{< cards >}}
-  {{< card title="Census Tract (CT)" image="/docs/getting_started/da-ad2.png" >}}
-{{< /cards >}}
-* **[Dissemination Block (DB)](https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo022):** A dissemination block (DB) is an area bounded on all sides by roads and/or boundaries of Statistics Canada’s standard geographic areas for dissemination. The dissemination block is the smallest geographic area for which population and dwelling counts are disseminated. Dissemination blocks cover all the territory of Canada.
-{{< cards >}}
-  {{< card title="Dissemination Block (DB)" image="/docs/getting_started/db-id2.png" >}}
-{{< /cards >}}
 * **[Economic Region (ER)](https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo022):** An economic region (ER) is a grouping of complete census divisions (CDs), with one exception in Ontario, created as a standard geographic unit for analysis of regional economic activity.
 {{< cards >}}
   {{< card title="Economic Region (ER)" image="/docs/getting_started/er-re.jpg" >}}
@@ -95,6 +77,25 @@ Population centres are classified into three groups, depending on the size of th
   * large urban population centres, with a population of 100,000 or more.
 {{< cards >}}
   {{< card title="Population Centre (POPCTR)" image="/docs/getting_started/pop-ctr-eng.png" >}}
+{{< /cards >}}
+* **[Census Metropolitan Area (CMA)](https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo009):** A census metropolitan area (CMA) or a census agglomeration (CA) is formed by one or more adjacent municipalities centred on a population centre (known as the core). A CMA must have a total population of at least 100,000 based on data from the current Census of Population Program, of which 50,000 or more must live in the core based on adjusted data from the previous Census of Population Program. To be included in the CMA or CA, other adjacent municipalities must have a high degree of integration with the core, as measured by commuting flows derived from data on place of work from the previous Census Program.
+{{< cards >}}
+  {{< card title="Census Metropolitan Area (CMA)" image="/docs/getting_started/cma-rmr.png" >}}
+{{< /cards >}}
+* **[Census Agglomeration (CA)](https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo009):** Similar to a CMA, but with a core population of at least 10,000. To be included in the CMA or CA, other adjacent municipalities must have a high degree of integration with the core, as measured by commuting flows derived from data on place of work from the previous Census Program.
+* **[Census Tract (CT)](https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo013):** Census tracts (CTs) are small, relatively stable geographic areas that usually have a population of fewer than 7,500 persons, based on data from the previous Census of Population Program. They are located in census metropolitan areas (CMAs) and in census agglomerations (CAs) that had a core population of 50,000 or more in the previous census.
+{{< cards >}}
+  {{< card title="Census Tract (CT)" image="/docs/getting_started/ct-sr_02-eng.png" >}}
+{{< /cards >}}
+
+* **[Aggregate Dissemination Area (ADA)](https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo053):** An aggregate dissemination area (ADA) is a dissemination geography created for the Census. ADAs cover the entire country and, where possible, have a population between 5,000 and 15,000 based on the previous census population counts. ADAs are created by grouping existing dissemination geographic areas, including census tracts (CTs), census subdivisions (CSDs) or dissemination areas (DAs). ADA boundaries respect provincial, territorial, census division (CD), census metropolitan area (CMA) and census agglomeration (CA) boundaries.
+* **[Dissemination Area (DA)](https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo021):** A dissemination area (DA) is a small, relatively stable geographic unit composed of one or more adjacent dissemination blocks with an average population of 400 to 700 persons based on data from the previous Census of Population Program. It is the smallest standard geographic area for which all census data are disseminated. DAs cover all the territory of Canada.
+{{< cards >}}
+  {{< card title="Dissemination Area (DA)" image="/docs/getting_started/da-ad2.png" >}}
+{{< /cards >}}
+* **[Dissemination Block (DB)](https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo022):** A dissemination block (DB) is an area bounded on all sides by roads and/or boundaries of Statistics Canada’s standard geographic areas for dissemination. The dissemination block is the smallest geographic area for which population and dwelling counts are disseminated. Dissemination blocks cover all the territory of Canada.
+{{< cards >}}
+  {{< card title="Dissemination Block (DB)" image="/docs/getting_started/db-id2.png" >}}
 {{< /cards >}}
 
 <!-- Gemini can sometimes be...unsmart>
