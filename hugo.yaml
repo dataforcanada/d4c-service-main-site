@@ -35,22 +35,22 @@ outputs:
 
 menu:
   main:
-    - name: Status
+    - name: 🟢 Status
       weight: 1
       url: "https://status.dataforcanada.org"
-    - name: Datasets
-      weight: 2
-      url: https://data-01.dataforcanada.org/
-    - name: Docs
+    - name: 📚 Docs
       pageRef: /docs/
-      weight: 3
+      weight: 2
     - name: Contact
       pageRef: /contact/
-      weight: 4
+      weight: 3
     - name: Infrastructure
       url: /infrastructure/
+      weight: 4
+    - name: Dissemination
+      url: /docs/d4c-infra-distribution/
       weight: 5
-    - name: Contact
+    - name: 📬 Contact
       pageRef: /contact/
       weight: 6
     - name: Search
