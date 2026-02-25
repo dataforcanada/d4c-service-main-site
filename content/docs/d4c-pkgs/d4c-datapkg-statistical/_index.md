@@ -15,7 +15,7 @@ The following two sections goes over the Statistics Canada data that was process
 ## Background
 
 {{< callout type="important" >}}
-  The concepts listed in [terms](/docs/getting_started/terms/#1-statistical-data-package) are key to working with Statistical and Census data from Statistics Canada.
+  The concepts listed in [terms](/docs/getting_started/terminology/#1-statistical-data-package) are key to working with Statistical and Census data from Statistics Canada.
 {{< /callout >}}
 
 ## Data Packages

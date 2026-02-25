@@ -9,7 +9,7 @@ Look through our [d4c-datapkg-statistical](https://github.com/dataforcanada/d4c-
 ## Background
 
 {{< callout type="important" >}}
-  The concepts listed in [terms](/docs/getting_started/terms/#1-statistical-data-package) are key to working with Statistical and Census data from Statistics Canada.
+  The concepts listed in [terms](/docs/getting_started/terminology/#1-statistical-data-package) are key to working with Statistical and Census data from Statistics Canada.
 {{< /callout >}}
 
 ## Download and Preview
