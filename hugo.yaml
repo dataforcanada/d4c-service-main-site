@@ -38,17 +38,9 @@ menu:
     - name: Status
       weight: 1
       url: "https://status.dataforcanada.org"
-    - identifier: datasets
-      name: Datasets
+    - name: Datasets
       weight: 2
-    - identifier: Production
-      name: Production
-      url: https://data-01.dataforcanada.org/processed/
-      parent: datasets
-    - identifier: Labs
-      name: Labs
-      url: https://data-01.labs.dataforcanada.org/processed/
-      parent: datasets
+      url: https://data-01.dataforcanada.org/
     - name: Docs
       pageRef: /docs/
       weight: 3
