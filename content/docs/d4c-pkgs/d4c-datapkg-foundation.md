@@ -3,7 +3,7 @@ title: Foundation
 weight: 1
 ---
 
-Look through our [d4c-datapkg-foundation](https://github.com/dataforcanada/d4c-datapkg-foundation) repo for the datasets that are currently being processed. There is still lots of work to do to make it ready for systems.
+Look through our [d4c-datapkg-foundation](https://github.com/dataforcanada/d4c-datapkg-foundation) repo for the datasets that are currently being processed.
 
 ## Download and Preview
 
