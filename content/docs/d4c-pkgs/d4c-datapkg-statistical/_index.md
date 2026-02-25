@@ -22,5 +22,5 @@ The following two sections goes over the Statistics Canada data that was process
 
 {{< cards >}}
   {{< card link="/docs/d4c-pkgs/d4c-datapkg-statistical/statistics_canada/statistical_administrative_boundaries/" title="Statistical and Administrative Boundaries" icon="globe" >}}
-  {{< card link="/docs/d4c-pkgs/d4c-datapkg-statistical/statistics_canada/census_data/" title="Census Data" icon="map" >}}
+  {{< card link="/docs/d4c-pkgs/d4c-datapkg-statistical/statistics_canada/census_data/" title="Census" icon="map" >}}
 {{< /cards >}}
