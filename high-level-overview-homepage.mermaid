@@ -1,36 +1,22 @@
 flowchart TD
-    classDef linkNode stroke:#0000EE,color:#0000EE,stroke-width:2px;
-    
-    %% ---------------------------------------------------------
-    %% 1. DATA SOURCES
-    %% ---------------------------------------------------------
+    classDef linkNode stroke:#333333,color:#333333,stroke-width:1.5px
+    classDef legendRed fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
+    classDef legendYellow fill:#FBC02D,stroke:#F9A825,color:#000000
+    classDef legendGreen fill:#66BB6A,stroke:#2E7D32,color:#000000
+
     subgraph ds [Data Sources]
         Statistical@{ shape: lean-l}
         Foundation@{ shape: lean-l}
-        EnvironmentClimate@{ shape: lean-l, label: "Environment, Climate, & Health"}
-        style EnvironmentClimate fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
+        EnvClimate@{ shape: lean-l, label: "Environment, Climate, & Health"}
         Orthoimagery@{ shape: lean-l}
-        style Orthoimagery fill:#FBC02D,stroke:#F9A825,color:#000000
         FieldImagery@{ shape: lean-l, label: "Field Imagery"}
-        style FieldImagery fill:#66BB6A,stroke:#2E7D32,color:#000000
-        %% My little secret, this is one of my highest priorities, but I have to learn more about how Internet Archive does the job and improve it. They do it way too inneficiently (ex. capture a webpage hundreds of times per day), and they don't allow capturing from multiple locations. A webpage can be served differently depending on IP level data, corporate proxies, when you control certificates, etc
         WebCorpus@{ shape: lean-l, label: "Web Corpus"}
-        style WebCorpus fill:#66BB6A,stroke:#2E7D32,color:#000000
         Elevation@{ shape: lean-l}
-        style Elevation fill:#FBC02D,stroke:#F9A825,color:#000000
     end
 
-    %% ---------------------------------------------------------
-    %% 3. PROCESSING PIPELINE
-    %% ---------------------------------------------------------
-    DataforCanadaPackagesCollection@{ shape: rect, label: "Data Packages"}
+    DataPkgs@{ shape: rect, label: "Data Packages"}
 
-    %% ---------------------------------------------------------
-    %% 4. DISSEMINATION FORMATS
-    %% ---------------------------------------------------------
     subgraph df [Dissemination Formats]
-        
-        %% Box: Long-Term Storage (Pastel Gold)
         subgraph sot [Long-Term Storage]
             Parquet@{ shape: lean-l}
             Zarr@{ shape: lean-l}
@@ -38,216 +24,180 @@ flowchart TD
             AV1@{ shape: lean-l, label: "Next-Gen Video"}
             JPEGXL@{ shape: lean-l, label: "Next-Gen Imagery"}
             WARC@{ shape: lean-l, label: "Unstructured Web Data"}
-            FAIRDataDis@{ shape: lean-l, label: "FAIR Data Catalogue"}
+            FAIRCat@{ shape: lean-l, label: "FAIR Data Catalogue"}
         end
 
-        %% Intermediate format (Standalone)
         FlatGeoBuf@{ shape: lean-l}
 
-        %% Box: Vector Tiles (Pastel Orange)
         subgraph vt [Vector Tiles]
             VectorTiles@{ shape: lean-l, label: "Mapbox Vector Tiles"}
-            style VectorTiles fill:#66BB6A,stroke:#2E7D32,color:#000000
-            NextGenVectorTiles@{ shape: lean-l, label: "Next-Gen Vector Tiles"}
-            style NextGenVectorTiles fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
+            NextGenVT@{ shape: lean-l, label: "Next-Gen Vector Tiles"}
         end
 
-        %% Box: Visuals (Pastel Blue - No Name)
         subgraph visuals [" "]
-            %% AVIF is not an option since QGIS does not seem to support it (I was surprised when my generated file was not compatible)
             WebP@{ shape: lean-l}
-            style WebP fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
             JPG@{ shape: lean-l}
-            style JPG fill:#66BB6A,stroke:#2E7D32,color:#000000
             PNG@{ shape: lean-l}
-            style PNG fill:#66BB6A,stroke:#2E7D32,color:#000000
         end
 
-        %% Box: Portable Databases (Pastel Green)
         subgraph pkg [Portable Databases]
-            %% Good format, but has some issues. I encountered issues when merging multiple adjoining PMTile files, the author is aware of these issues
             PMTiles@{ shape: lean-l}
-            %% Compatability with every OS. 
-            %% Fun fact, you don't even need an OS for running SQLite 
-            %% https://sqlite.org/selfcontained.html
             SQLite@{ shape: lean-l}
         end
 
-        %% Box: Enterprise (Pastel Purple)
         subgraph ent [Enterprise]
-            FileGeodatabase@{shape: lean-l, label: "File Geodatabase"}
-            style FileGeodatabase fill:#fff,stroke:#2E7D32,color:#000000
+            FileGDB@{shape: lean-l, label: "File Geodatabase"}
         end
     end
 
-    %% ---------------------------------------------------------
-    %% 5. DISTRIBUTION INFRASTRUCTURE
-    %% ---------------------------------------------------------
     subgraph di [Distribution]
-        %% My goals involve going beyond object storage, so use generic term
-        ObjectStorage@{ shape: bow-rect, label: "Storage"}
-        style ObjectStorage fill:#FBC02D,stroke:#F9A825,color:#000000
+        ObjStorage@{ shape: bow-rect, label: "Storage"}
         Metadata@{ shape: rect, label: "FAIR Data Catalogue"}
         HTTP@{ shape: rect, label: "Systems-Ready Data"}
-        DecentralizedDistribution@{ shape: rect, label: "Decentralized Distribution"}
+        DecenDist@{ shape: rect, label: "Decentralized Distribution"}
     end
 
-    %% ---------------------------------------------------------
-    %% 6. EXPERIMENTAL INFRASTRUCTURE
-    %% ---------------------------------------------------------
     subgraph ei [Experimental Infrastructure]
-        GeoSpatialServices@{ shape: rect, label: "Geospatial Services"}
-        %% Does not make sense. Focus on delivering the data 
-        style GeoSpatialServices fill:#66BB6A,stroke:#2E7D32,color:#000000
+        GeoServices@{ shape: rect, label: "Geospatial Services"}
     end
 
-    %% ---------------------------------------------------------
-    %% 7. CONSUMPTION
-    %% ---------------------------------------------------------
-    subgraph "Consumption"
+    subgraph consumption [Consumption]
         DataSci@{ shape: rect, label: "Data People & Developers"}
         Systems@{ shape: rect, label: "Systems"}
     end
 
-    %% =========================================================
-    %% RELATIONSHIPS
-    %% =========================================================
+    Statistical e1@<--> DataPkgs
+    e1@{animate: true, animation: slow}
+    Foundation e2@<--> DataPkgs
+    e2@{animate: true, animation: slow}
+    Orthoimagery e3@<--> DataPkgs
+    e3@{animate: true, animation: slow}
+    EnvClimate e4@<--> DataPkgs
+    e4@{animate: true, animation: fast}
+    Elevation e5@<--> DataPkgs
+    e5@{animate: true, animation: slow}
+    WebCorpus e6@<--> DataPkgs
+    e6@{animate: true, animation: fast}
+    FieldImagery e7@<--> DataPkgs
+    e7@{animate: true, animation: fast}
 
-    %% Data Sources <--> Data for Canada Packages Collection (Box)
-    Statistical a1@<--> DataforCanadaPackagesCollection
-    a1@{animate: true, animation: slow}
-    Foundation a2@<--> DataforCanadaPackagesCollection
-    a2@{animate: true, animation: slow}
-    Orthoimagery a3@<--> DataforCanadaPackagesCollection
-    a3@{animate: true, animation: slow}
-    EnvironmentClimate a5@<--> DataforCanadaPackagesCollection
-    a5@{animate: true, animation: fast}
-    Elevation a6@<--> DataforCanadaPackagesCollection
-    a6@{animate: true, animation: slow}
-    WebCorpus a7@<--> DataforCanadaPackagesCollection
-    a7@{animate: true, animation: fast}
-    %% Last as there are potential complications with implementation
-    FieldImagery a4@<--> DataforCanadaPackagesCollection
-    a4@{animate:true, animation: fast}
+    DataPkgs e8@--> df
+    e8@{animate: true, animation: fast}
 
-    DataforCanadaPackagesCollection a10@--> df
-    a10@{animate: true, animation: fast}
+    sot e9@<--> FlatGeoBuf
+    e9@{animate: true, animation: fast}
 
-    %% Long-Term Storage --> FlatGeoBuf
-    sot a10000@<--> FlatGeoBuf
-    a10000@{animate: true, animation: fast}
-    
-    %% FlatGeoBuf --> Vector Tiles (Box)
-    FlatGeoBuf a11@--> vt
-    a11@{animate: true, animation: fast}
+    FlatGeoBuf e10@--> vt
+    e10@{animate: true, animation: fast}
 
-    %% Long-Term Storage <--> Visuals (Box)
-    sot a12@<--> visuals
-    a12@{animate: true, animation: slow}
+    sot e11@<--> visuals
+    e11@{animate: true, animation: slow}
 
-    %% Vector Tiles --> Portable Databases (Box)
-    vt a90@<--> pkg
-    a90@{animate: true, animation: fast}
+    vt e12@<--> pkg
+    e12@{animate: true, animation: fast}
 
-    %% Visuals --> Portable Databases (Box)
-    visuals a93@<--> pkg
-    a93@{animate: true, animation: slow}
+    visuals e13@<--> pkg
+    e13@{animate: true, animation: slow}
 
-    %% Long-Term Storage --> Enterprise (Box)
-    sot a100@<--> ent
-    a100@{animate: true, animation: slow}
+    sot e14@<--> ent
+    e14@{animate: true, animation: slow}
 
-    %% Visuals --> Enterprise (Box)
-    visuals a102@--> ent
-    a102@{animate: true, animation: slow}
+    visuals e15@--> ent
+    e15@{animate: true, animation: slow}
 
-    %% Dissemination Formats --> Distribution Infrastructure
-    df a13@<--> di
-    a13@{animate: true, animation: slow}
+    df e16@<--> di
+    e16@{animate: true, animation: slow}
 
-    %% Distribution Infrastructure Flow
-    ObjectStorage a15@<--> Metadata
-    a15@{animate: true, animation: slow}
-    Metadata a16@<--> HTTP
-    a16@{animate: true, animation: slow}
-    
-    HTTP a17@<--> ei
-    a17@{animate: true, animation: slow}
-    HTTP a18@<--> DecentralizedDistribution
-    a18@{animate: true, animation: slow}
-    HTTP a19@<--> DataSci
-    a19@{animate: true, animation: slow}
-    
-    DecentralizedDistribution a20@--> Systems
-    a20@{animate: true, animation: fast}
-    DecentralizedDistribution a21@--> DataSci
-    a21@{animate: true, animation: fast}
-    
-    Systems a22@ <--> DataSci
-    a22@{animate: true, animation: fast}
-    ei a23@ <--> DataSci
-    a23@{animate: true, animation: slow}
+    ObjStorage e17@<--> Metadata
+    e17@{animate: true, animation: slow}
+    Metadata e18@<--> HTTP
+    e18@{animate: true, animation: slow}
 
-    %% =========================================================
-    %% STYLING
-    %% =========================================================
+    HTTP e19@<--> ei
+    e19@{animate: true, animation: slow}
+    HTTP e20@<--> DecenDist
+    e20@{animate: true, animation: slow}
+    HTTP e21@<--> DataSci
+    e21@{animate: true, animation: slow}
 
-classDef linkNode stroke:#333333,color:#333333,stroke-width:1.5px;
+    DecenDist e22@--> Systems
+    e22@{animate: true, animation: fast}
+    DecenDist e23@--> DataSci
+    e23@{animate: true, animation: fast}
 
-style DataforCanadaPackagesCollection fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
-style FAIRDataDis fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
-style DecentralizedDistribution fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
-style HTTP fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
-style Systems fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
-style Metadata fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
-style Statistical fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
-style Foundation fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
+    Systems e24@<--> DataSci
+    e24@{animate: true, animation: fast}
+    ei e25@<--> DataSci
+    e25@{animate: true, animation: slow}
 
-%%style df fill:#D32F2F,stroke:#8E0000,color:#FFFFFF
-style sot fill:#EF9A9A,stroke:#C62828,color:#000000
+    consumption ~~~ legend
+    subgraph legend [Priority Legend]
+        direction LR
+        L1[High]:::legendRed ~~~ L2[Medium]:::legendYellow ~~~ L3[Low]:::legendGreen
+    end
 
-style Parquet fill:#FFCDD2,stroke:#E57373,color:#000000
-style Zarr fill:#FFCDD2,stroke:#E57373,color:#000000
-style GeoTIFF fill:#FFCDD2,stroke:#E57373,color:#000000
-style JPEGXL fill:#FFCDD2,stroke:#E57373,color:#000000
-style WARC fill:#FFCDD2,stroke:#E57373,color:#000000
-style AV1 fill:#FFCDD2,stroke:#E57373,color:#000000
+    style EnvClimate fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
+    style Orthoimagery fill:#FBC02D,stroke:#F9A825,color:#000000
+    style FieldImagery fill:#66BB6A,stroke:#2E7D32,color:#000000
+    style WebCorpus fill:#66BB6A,stroke:#2E7D32,color:#000000
+    style Elevation fill:#FBC02D,stroke:#F9A825,color:#000000
 
-style pkg fill:#FFB74D,stroke:#EF6C00,color:#000000
-style SQLite fill:#EF6C00,stroke:#E65100,color:#000000
-style PMTiles fill:#FFCC80,stroke:#FB8C00,color:#000000
+    style VectorTiles fill:#66BB6A,stroke:#2E7D32,color:#000000
+    style NextGenVT fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
+    style WebP fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
+    style JPG fill:#66BB6A,stroke:#2E7D32,color:#000000
+    style PNG fill:#66BB6A,stroke:#2E7D32,color:#000000
+    style FileGDB fill:#fff,stroke:#2E7D32,color:#000000
+    style GeoServices fill:#66BB6A,stroke:#2E7D32,color:#000000
+    style ObjStorage fill:#FBC02D,stroke:#F9A825,color:#000000
 
-style vt fill:#FBC02D,stroke:#F9A825,color:#000000
-style FlatGeoBuf fill:#FBC02D,stroke:#F9A825,color:#000000
+    style DataPkgs fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
+    style FAIRCat fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
+    style DecenDist fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
+    style HTTP fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
+    style Systems fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
+    style Metadata fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
+    style Statistical fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
+    style Foundation fill:#B71C1C,stroke:#7F0000,color:#FFFFFF
 
-style visuals fill:#FBC02D,stroke:#F9A825,color:#000000
+    style sot fill:#EF9A9A,stroke:#C62828,color:#000000
+    style Parquet fill:#FFCDD2,stroke:#E57373,color:#000000
+    style Zarr fill:#FFCDD2,stroke:#E57373,color:#000000
+    style GeoTIFF fill:#FFCDD2,stroke:#E57373,color:#000000
+    style JPEGXL fill:#FFCDD2,stroke:#E57373,color:#000000
+    style WARC fill:#FFCDD2,stroke:#E57373,color:#000000
+    style AV1 fill:#FFCDD2,stroke:#E57373,color:#000000
 
-style ent fill:#66BB6A,stroke:#2E7D32,color:#000000
-style DataSci fill:#D32F2F,stroke:#8E0000,color:#FFFFFF
+    style pkg fill:#FFB74D,stroke:#EF6C00,color:#000000
+    style SQLite fill:#EF6C00,stroke:#E65100,color:#000000
+    style PMTiles fill:#FFCC80,stroke:#FB8C00,color:#000000
 
+    style vt fill:#FBC02D,stroke:#F9A825,color:#000000
+    style FlatGeoBuf fill:#FBC02D,stroke:#F9A825,color:#000000
+    style visuals fill:#FBC02D,stroke:#F9A825,color:#000000
 
-class FieldImagery linkNode
-class Parquet,FlatGeoBuf,SQLite,FileGeodatabase,VectorTiles,NextGenVectorTiles,GeoTIFF,Zarr,WebP,PMTiles,JPEGXL,AV1,WARC linkNode
+    style ent fill:#66BB6A,stroke:#2E7D32,color:#000000
+    style DataSci fill:#D32F2F,stroke:#8E0000,color:#FFFFFF
 
-    %% =========================================================
-    %% CLICK ACTIONS
-    %% =========================================================
-    click DataforCanadaPackagesCollection "https://github.com/dataforcanada/d4c-pkgs" _blank
+    style legend fill:none,stroke:#999,stroke-width:1px
 
+    class FieldImagery linkNode
+    class Parquet,FlatGeoBuf,SQLite,FileGDB,VectorTiles,NextGenVT,GeoTIFF,Zarr,WebP,PMTiles,JPEGXL,AV1,WARC linkNode
+
+    click DataPkgs "https://github.com/dataforcanada/d4c-pkgs" _blank
     click Foundation "https://github.com/dataforcanada/d4c-datapkg-foundation" _blank
     click Statistical "https://github.com/dataforcanada/d4c-datapkg-statistical" _blank
     click Orthoimagery "https://github.com/dataforcanada/d4c-datapkg-orthoimagery" _blank
     click FieldImagery "https://github.com/dataforcanada/d4c-datapkg-field-imagery" _blank
-    click EnvironmentClimate "https://github.com/dataforcanada/d4c-datapkg-environment-climate-health" _blank
+    click EnvClimate "https://github.com/dataforcanada/d4c-datapkg-environment-climate-health" _blank
     click Elevation "https://github.com/dataforcanada/d4c-datapkg-elevation" _blank
     click WebCorpus "https://github.com/dataforcanada/d4c-datapkg-web-corpus" _blank
-
     click Parquet "https://github.com/apache/parquet-format/" _blank
     click FlatGeoBuf "https://flatgeobuf.org/" _blank
     click SQLite "https://www.geopackage.org/" _blank
-    click FileGeodatabase "https://gdal.org/en/stable/drivers/vector/openfilegdb.html" _blank
+    click FileGDB "https://gdal.org/en/stable/drivers/vector/openfilegdb.html" _blank
     click VectorTiles "https://github.com/mapbox/vector-tile-spec/" _blank
-    click NextGenVectorTiles "https://github.com/maplibre/maplibre-tile-spec/" _blank
+    click NextGenVT "https://github.com/maplibre/maplibre-tile-spec/" _blank
     click GeoTIFF "https://cogeo.org/" _blank
     click Zarr "https://github.com/zarr-developers/geozarr-spec/" _blank
     click WebP "https://developers.google.com/speed/webp/" _blank
@@ -255,9 +205,7 @@ class Parquet,FlatGeoBuf,SQLite,FileGeodatabase,VectorTiles,NextGenVectorTiles,G
     click JPEGXL "https://jpeg.org/jpegxl/" _blank
     click AV1 "https://aomedia.org/specifications/av1/" _blank
     click WARC "https://github.com/iipc/warc-specifications/" _blank
-    click FAIRDataDis "https://stac-utils.github.io/stac-geoparquet/latest/spec/stac-geoparquet-spec/" _blank
-
+    click FAIRCat "https://stac-utils.github.io/stac-geoparquet/latest/spec/stac-geoparquet-spec/" _blank
     click HTTP "https://www.dataforcanada.org/docs/" _blank
-    click DecentralizedDistribution "https://www.dataforcanada.org/docs/dissemination/" _blank
+    click DecenDist "https://www.dataforcanada.org/docs/d4c-infra-distribution/" _blank
     click Metadata "https://stac-utils.github.io/stac-geoparquet/latest/spec/stac-geoparquet-spec/" _blank
-    click GeoSpatialServices "https://github.com/dataforcanada/geo-services-labs/" _blank
