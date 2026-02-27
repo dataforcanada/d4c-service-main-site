@@ -24,7 +24,9 @@ Look through our [GitHub Organization](https://github.com/orgs/dataforcanada/rep
 {{< cards cols="1" >}}
   {{< card link="https://source.coop/dataforcanada/" title="Source Cooperative Mirror" icon="beaker" >}}
   {{< card link="https://d4c-pkgs.t3.storage.dev/" title="Tigris Strategic Mirror" icon="globe" >}}
-  {{< card link="https://data-01.dataforcanada.org/" title="Cloudflare Strategic Mirror" icon="check-circle" >}}
+  <!--
+  {{< card link="" title="Cloudflare Strategic Mirror" icon="check-circle" >}}
+  -->
   {{< card link="https://zenodo.org/communities/dataforcanada/records/" title="Zenodo Strategic Mirror" icon="academic-cap" >}}
   {{< card link="https://archive.org/details/@diegoripley/uploads/" title="Internet Archive Strategic Mirror" icon="library" >}}
   {{< card link="/#get-involved" title="Community" icon="sun" >}}
