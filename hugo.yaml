@@ -56,7 +56,7 @@ menu:
         type: search
     - name: GitHub
       weight: 7
-      url: "https://github.com/dataforcanada"
+      url: "https://github.com/dataforcanada/d4c-service-main-site"
       params:
         icon: github
 
