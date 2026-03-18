@@ -31,7 +31,7 @@ outputs:
   rss: [rss]
   section: [html, rss, markdown]
   taxonomy: [html, rss]
-  term: [html, rss, markdown]
+  term: [html, rss]
 
 menu:
   main:
