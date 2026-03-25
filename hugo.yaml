@@ -101,7 +101,7 @@ params:
     displayPoweredBy: True
 
   imageZoom:
-    enable: true
+    enable: false
 
   # Turn on when there are teams
   #displayUpdatedAuthor: true
