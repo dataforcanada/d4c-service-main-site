@@ -17,7 +17,6 @@ Look through our [d4c-datapkg-statistical](https://github.com/dataforcanada/d4c-
 {{< callout type="note">}}
 **Credit:**
 
-* The location search functionality in our map previews is powered by the **[PHAC Geocoder](https://geocoder.alpha.phac.gc.ca/) (Currently down)**.
 * The basemaps is generously served through [OpenFreeMap](https://openfreemap.org/).
 {{< /callout >}}
 

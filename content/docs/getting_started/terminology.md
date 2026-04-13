@@ -107,12 +107,3 @@ Terms related to imagery processing and remote sensing.
 
 * **[Orthoimagery](https://www.dataforcanada.org/docs/d4c-pkgs/d4c-datapkg-orthoimagery/):** Aerial or satellite imagery geometrically corrected ("orthorectified") such that the scale is uniform, allowing for accurate measurements of distance.
 * **[Photogrammetry](https://www.dataforcanada.org/docs/d4c-pkgs/d4c-datapkg-field-imagery/):** The science of making measurements from photographs, used to generate 3D models and orthomosaics.
-
-<!--
-## 4. Infrastructure & Distribution
-
-Terms related to the decentralized delivery of D4C data.
-
-* **[Source Cooperative](https://www.dataforcanada.org/infrastructure/):** A cloud-native data publishing utility where D4C hosts primary repositories.
-* **[SpatioTemporal Asset Catalogs (STAC)](https://www.dataforcanada.org/docs/d4c-infra-distribution/):** A specification that provides a common language to describe geospatial datasets so they can more easily be indexed and discovered.
--->
