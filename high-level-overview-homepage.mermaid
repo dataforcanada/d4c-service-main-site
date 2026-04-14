@@ -21,7 +21,6 @@ flowchart TD
     %% TODO: 3D Tiles. Need to take a closer look at this file format, I am not experienced with it
     GLB@{ shape: rect, label: "glTF GLB"}
     FlatCityBuf@{ shape: rect}
-    Lance@{ shape: rect}
 
         subgraph sot [Long-Term Storage]
             Parquet@{ shape: lean-l}
@@ -29,6 +28,7 @@ flowchart TD
             GeoTIFF@{ shape: lean-l}
             JPEGXL@{ shape: lean-l, label: "JPEG XL"}
             AV1@{ shape: lean-l, label: "AV1"}
+            Lance@{ shape: rect}
             %% Commented out since I'm pretty sure this is not ideal file format. Ideal file format is Parquet and other file formats outlined depending on need. For example, let's say we archive media posts from various platforms (ex. X, BlueSky, etc.), there's no need to archive the webpage if we can just parse the content and have significant savings.
             %% If we do archive webpages, I want there to be a deduplicating component similar to BTRFS, The Internet Archive is way too wasteful with the way they archive webpages.
             %%WARC@{ shape: lean-l, label: "Unstructured Web Data"}
