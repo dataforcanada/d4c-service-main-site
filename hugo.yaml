@@ -41,21 +41,27 @@ menu:
     - name: 📚 Docs
       pageRef: /docs/
       weight: 2
+    - name: Blog
+      pageRef: /blog/
+      params:
+        type: link
+        icon: rss
+      weight: 3
     - name: Infrastructure
       url: /infrastructure/
-      weight: 3
+      weight: 4
     - name: Dissemination
       url: /docs/d4c-infra-distribution/
-      weight: 4
+      weight: 5
     - name: 📬 Contact
       pageRef: /contact/
-      weight: 5
-    - name: Search
       weight: 6
+    - name: Search
+      weight: 7
       params:
         type: search
     - name: GitHub
-      weight: 7
+      weight: 8
       url: "https://github.com/dataforcanada/d4c-service-main-site"
       params:
         icon: github
