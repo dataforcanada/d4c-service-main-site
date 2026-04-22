@@ -41,10 +41,14 @@ Two datasets are archived on [Source Cooperative](https://source.coop) under the
 
 Both datasets are partitioned by station, which makes it straightforward to query only this station with tools such as DuckDB, or to combine it with other stations in the network.
 
-## 4. The Future
-The real value lies in scaling this into a high-density network for smarter urban governance. High-resolution air quality data can transition cities from static policies to **intelligent decision-making**, for example: driving real-time traffic signal adjustments, dynamic speed limits, pollution-aware routing for vehicles, cross-border air pollution, etc.
+## 4. The Future: Scalable Environmental Governance
+The real value lies in scaling this into a high-density network to support **governance**, bridging the gap between urban and rural environments. Because these sensors are portable and low-cost, they can be deployed across diverse landscapes to drive **intelligent decision-making** and policy:
+
+* **Urban:** Driving real-time traffic signal adjustments, dynamic speed limits, and pollution-aware routing.
+* **Rural & Wilderness:** Monitoring cross-border air pollution, wildfire smoke drift, and micro-climate changes in protected natural areas.
 
 I’ve already purchased a second station to take into the field. By syncing both the Pi and my phone to the same time server (NTP), I can join the air quality readings with my phone's GPS track using timestamps. This turns future hikes into mobile environmental surveys, mapping the environment one trail at a time.
+
 
 ## 5. Join the Network
 [Join the network](https://opensensor.space/join-network/), it is super easy, it took me less than 2 hours to get everything working.
