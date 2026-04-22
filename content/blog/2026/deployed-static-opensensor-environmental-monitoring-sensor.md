@@ -30,7 +30,9 @@ Once the hardware was assembled, the Pi was flashed with the Raspberry Pi OS Lit
 ![d4c-opensensor-01](/blog/2026/deployed-static-opensensor-environmental-monitoring-sensor/d4c-opensensor-01.webp)
 
 ## 3. Data
-The station is registered on the network with the identifier `019d97ff-3220-74fc-8923-f9fb69e2273d`. Two datasets are archived on [Source Cooperative](https://source.coop) under the [`d4c-datapkg-environment-climate-health`](https://source.coop/dataforcanada/d4c-datapkg-environment-climate-health) data package:
+The station is registered on the network with the identifier [`019d97ff-3220-74fc-8923-f9fb69e2273d`](https://opensensor.space/Stations/019d97ff-3220-74fc-8923-f9fb69e2273d/). The publicly listed location for this station is set to the [Central Experimental Farm](https://en.wikipedia.org/wiki/Central_Experimental_Farm) rather than my actual deployment site; I did not want to give away my home location, and the Experimental Farm happens to be one of my favourite places in Ottawa. Once I move locations, I will retroactively update the station location.
+
+Two datasets are archived on [Source Cooperative](https://source.coop) under the [`d4c-datapkg-environment-climate-health`](https://source.coop/dataforcanada/d4c-datapkg-environment-climate-health) data package:
 
 - **Sensor readings** (temperature, humidity, pressure, gas, particulates, etc.):  
   [`archive/opensensor.space/enviroplus/station=019d97ff-3220-74fc-8923-f9fb69e2273d`](https://source.coop/dataforcanada/d4c-datapkg-environment-climate-health/archive/opensensor.space/enviroplus/station=019d97ff-3220-74fc-8923-f9fb69e2273d)
