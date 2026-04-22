@@ -12,7 +12,6 @@ tags:
   - environmental-monitoring
   - open-data
 excludeSearch: false
-draft: false
 ---
 
 I recently deployed a static environmental monitoring station that contributes readings to the [Open Sensor](https://opensensor.space) network. This is a quick post describing what the station is, how it is built, and where you can access the data it produces.
