@@ -1,7 +1,7 @@
 ---
 title: Deployed an Open Sensor Environmental Station Using Raspberry Pi and Enviro+
 summary: I deployed a static environmental monitoring station that contributes readings to the Open Sensor network, and made the raw sensor and health data openly available on Source Cooperative.
-date: 2026-04-18
+date: 2026-04-22T10:00:00-04:00
 authors:
   - name: diegoripley
     link: https://github.com/diegoripley
