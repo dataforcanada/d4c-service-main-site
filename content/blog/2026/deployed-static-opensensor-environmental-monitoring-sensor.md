@@ -39,7 +39,35 @@ Two datasets are archived on [Source Cooperative](https://source.coop) under the
 - **Station health metrics** (CPU temperature, uptime, memory, etc.):  
   [`archive/opensensor.space/enviroplus-health/station=019d97ff-3220-74fc-8923-f9fb69e2273d`](https://source.coop/dataforcanada/d4c-datapkg-environment-climate-health/archive/opensensor.space/enviroplus-health/station=019d97ff-3220-74fc-8923-f9fb69e2273d)
 
-Both datasets are partitioned by station, which makes it straightforward to query only this station with tools such as DuckDB, or to combine it with other stations in the network.
+Both datasets are partitioned by station, which makes it straightforward to query only this station with tools such as DuckDB, or to combine it with other stations in the network. The query below gathers the last 12 hours of readings and plots the temperature as a line graph.
+
+```python
+import duckdb
+import seaborn as sns
+
+sns.set_theme()
+
+con = duckdb.connect()
+con.install_extension("httpfs")
+con.load_extension("httpfs")
+
+# Last 15 minutes of readings
+result = con.sql("""
+    SELECT *
+    FROM read_parquet(
+        's3://us-west-2.opendata.source.coop/dataforcanada/d4c-datapkg-environment-climate-health/archive/opensensor.space/enviroplus/station=019d97ff-3220-74fc-8923-f9fb69e2273d/**/*.parquet',
+        hive_partitioning = true
+    )
+    WHERE timestamp >= now() - INTERVAL 12 HOUR
+    ORDER BY timestamp DESC;
+""")
+
+result_df = result.df()
+result_df
+
+# Quick Plot on temperature across time
+sns.lineplot(data=result_df, x='timestamp', y='temperature')
+```
 
 ## 4. The Future: Scalable Environmental Governance
 The real value lies in scaling this into a high-density network to support **governance**, bridging the gap between urban and rural environments. Because these sensors are portable and low-cost, they can be deployed across diverse landscapes to drive **intelligent decision-making** and policy:
