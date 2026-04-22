@@ -51,7 +51,7 @@ con = duckdb.connect()
 con.install_extension("httpfs")
 con.load_extension("httpfs")
 
-# Last 15 minutes of readings
+# Last 12 hours of readings
 result = con.sql("""
     SELECT *
     FROM read_parquet(
