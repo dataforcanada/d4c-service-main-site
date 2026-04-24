@@ -30,7 +30,8 @@ count_total_24 = "Total - 65 years and over"
 count_men_24 = "Male - 65 years and over"
 count_female_24 = "Female - 65 years and over"
 */
-SELECT DISTINCT
+EXPLAIN ANALYZE
+SELECT
     geo.*, cop.count_total_24, cop.count_men_24, cop.count_women_24
 FROM 
     read_parquet('s3://us-west-2.opendata.source.coop/dataforcanada/d4c-datapkg-statistical/processed/ca_statcan_2021A000011124_d4c-datapkg-statistical_provinces_territories_digital_2021_v0.1.0-beta.parquet') as geo,
@@ -43,3 +44,10 @@ count_total_24 = "Total - 65 years and over"
 count_men_24 = "Male - 65 years and over"
 count_female_24 = "Female - 65 years and over"
 */
+EXPLAIN ANALYZE
+SELECT
+    geo.*, cop.count_total_24, cop.count_men_24, cop.count_women_24
+FROM 
+    read_parquet('s3://us-west-2.opendata.source.coop/dataforcanada/d4c-datapkg-statistical/processed/ca_statcan_2021A000011124_d4c-datapkg-statistical_provinces_territories_cartographic_2021_v0.1.0-beta.parquet') as geo,
+    read_parquet('s3://us-west-2.opendata.source.coop/dataforcanada/d4c-datapkg-statistical/processed/ca_statcan_2021A000011124_d4c-datapkg-statistical_census_pop_provinces_territories_2021_v0.1.0-beta.parquet') as cop
+WHERE cop.pr_dguid = geo.pr_dguid;
