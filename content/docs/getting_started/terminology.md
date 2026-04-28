@@ -93,7 +93,7 @@ Population centres are classified into three groups, depending on the size of th
 {{< cards >}}
   {{< card title="Dissemination Area (DA)" image="/docs/getting_started/da-ad2.png" >}}
 {{< /cards >}}
-* **[Dissemination Block (DB)](https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo022):** A dissemination block (DB) is an area bounded on all sides by roads and/or boundaries of Statistics Canada’s standard geographic areas for dissemination. The dissemination block is the smallest geographic area for which population and dwelling counts are disseminated. Dissemination blocks cover all the territory of Canada.
+* **[Dissemination Block (DB)](https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo014):** A dissemination block (DB) is an area bounded on all sides by roads and/or boundaries of Statistics Canada’s standard geographic areas for dissemination. The dissemination block is the smallest geographic area for which population and dwelling counts are disseminated. Dissemination blocks cover all the territory of Canada.
 {{< cards >}}
   {{< card title="Dissemination Block (DB)" image="/docs/getting_started/db-id2.png" >}}
 {{< /cards >}}
