@@ -12,13 +12,15 @@ Look through our [d4c-datapkg-statistical](https://github.com/dataforcanada/d4c-
   The concepts listed in [terms](/docs/getting_started/terminology/#1-statistical-data-package) are key to working with Statistical and Census data from Statistics Canada.
 {{< /callout >}}
 
-## Download and Preview
+## Census of Population
+
+### Download and Preview
 
 You can use the **Map Preview** links to inspect the data as vector tiles.
 
 {{< details title="Instructions" closed="true" >}}
 
-### How to use the Map Preview
+#### How to use the Map Preview
 
 The map preview allows you to visualize specific census characteristics dynamically. Follow this workflow to verify the data before downloading.
 
@@ -67,3 +69,39 @@ Click the **"Recalculate Classes"** button. This will refresh the map legend and
 | Canada | CA  | 2021 | StatCan  | [ca_statcan_2021A000011124_d4c-datapkg-statistical_census_pop_census_tracts_2021_v0.1.0-beta](https://static-01.dataforcanada.org/processed/ca_statcan_2021A000011124_d4c-datapkg-statistical_census_pop_census_tracts_digital_2021_v0.1.0-beta/) | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19225426.svg)](https://doi.org/10.5281/zenodo.19225426) |
 | Canada | CA  | 2021 | StatCan  | [ca_statcan_2021A000011124_d4c-datapkg-statistical_census_pop_dissemination_areas_2021_v0.1.0-beta](https://static-01.dataforcanada.org/processed/ca_statcan_2021A000011124_d4c-datapkg-statistical_census_pop_dissemination_areas_digital_2021_v0.1.0-beta/) | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19224520.svg)](https://doi.org/10.5281/zenodo.19224520) |
 | Canada | CA  | 2021 | StatCan  | [ca_statcan_2021A000011124_d4c-datapkg-statistical_census_pop_dissemination_blocks_2021_v0.1.0-beta](https://static-01.dataforcanada.org/processed/ca_statcan_2021A000011124_d4c-datapkg-statistical_census_pop_dissemination_blocks_digital_2021_v0.1.0-beta/) | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19225462.svg)](https://doi.org/10.5281/zenodo.19225462) |
+
+## Census of Agriculture
+
+<!--
+{{< details title="Instructions" closed="true" >}}
+
+#### How to use Data
+
+**1. Identify your variable name(s) of interest**
+Census variables are mapped using a variable name. Consult the **[CEAG Variables Description Reference Sheet](https://1drv.ms/x/c/d42308bcd3b7a4a1/IQBlXJTQZzbQTbCq7_7h1AD7AS5pkEaXbsaVqXiGDnDz_H8?e=B7mCaL)** to find the variable name for the data you want to select.
+
+* *Example:* The variable name for "Age: 35 to 54 years - Number of farm operators" is **age3554**.
+
+**2. Select the geographic level of interest**
+There are 4 distinct geographic levels available for all Census of Agriculture data:
+- Country
+- Provinces and Territories
+- Census Agricultural Regions
+- Census Divisions
+- Census Consolidated Subdivisions
+
+You will need to get the URL of the geospatial boundaries
+
+```sql
+SELECT TEST
+```
+{{< /details >}}
+-->
+
+| Place  | ISO | Date | Provider | Dataset ID                                                                                                                                                                                                          | Download |
+| ------ | --- | ---- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
+| Canada | CA  | 2021 | StatCan  | ca_statcan_2021A000011124_d4c-datapkg-statistical_census_ag_country_2021_v0.1.0-beta | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20085959.svg)](https://doi.org/10.5281/zenodo.20085959) |
+| Canada | CA  | 2021 | StatCan  | ca_statcan_2021A000011124_d4c-datapkg-statistical_census_ag_provinces_territories_2021_v0.1.0-beta | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20085916.svg)](https://doi.org/10.5281/zenodo.20085916) |
+| Canada | CA  | 2021 | StatCan  | ca_statcan_2021A000011124_d4c-datapkg-statistical_census_ag_census_agricultural_regions_2021_v0.1.0-beta | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20086698.svg)](https://doi.org/10.5281/zenodo.20086698) |
+| Canada | CA  | 2021 | StatCan  | ca_statcan_2021A000011124_d4c-datapkg-statistical_census_ag_census_divisions_2021_v0.1.0-beta | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20086330.svg)](https://doi.org/10.5281/zenodo.20086330) |
+| Canada | CA  | 2021 | StatCan  | ca_statcan_2021A000011124_d4c-datapkg-statistical_census_ag_census_consolidated_subdivisions_2021_v0.1.0-beta | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20086117.svg)](https://doi.org/10.5281/zenodo.20086117) |
