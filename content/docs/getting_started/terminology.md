@@ -91,6 +91,10 @@ Standard geographic areas from the 2021 Census of Population hierarchy, as defin
 {{< cards >}}
   {{< card link="https://s3.dataforcanada.org/tigris/d4u-datapkg-web-corpus/archive/1777399821.651869/singlefile.html" title="Economic Region (ER)" image="/docs/getting_started/er-re.jpg" >}}
 {{< /cards >}}
+* **[Census Agricultural Region (CAR)](https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo006):** Census agricultural regions (CARs) are composed of groups of adjacent census divisions.
+{{< cards >}}
+  {{< card link="https://www12.statcan.gc.ca/census-recensement/2021/ref/dict/az/Definition-eng.cfm?ID=geo006" title="Census Agricultural Region (CAR)" image="/docs/getting_started/car-rar2-eng.jpg" >}}
+{{< /cards >}}
 * **[Population Centre (POPCTR)](https://s3.dataforcanada.org/tigris/d4u-datapkg-web-corpus/archive/1777399842.515773/singlefile.html):** A population centre (POPCTR) has a population of at least 1,000 and a population density of 400 persons or more per square kilometre, based on population counts from the current Census of Population. All areas outside population centres are classified as rural areas. Taken together, population centres and rural areas cover all of Canada.
 Population centres are classified into three groups, depending on the size of their population:
   * small population centres, with a population between 1,000 and 29,999
