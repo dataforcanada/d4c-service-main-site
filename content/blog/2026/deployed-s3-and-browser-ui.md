@@ -17,7 +17,7 @@ A core part of the mission here at Data for Canada is modernizing how we access,
 These two tools are designed to serve both programmatic workflows and everyday discovery.
 
 ## 1. The Programmatic S3 Interface
-[developmentseed/multistore](https://github.com/developmentseed/multistore/) has been successfully deployed to [https://s3.dataforcanada.org/](https://s3.dataforcanada.org/).
+[developmentseed/multistore](https://github.com/developmentseed/multistore/) has been successfully deployed to [https://s3.dataforcanada.org/](https://s3.dataforcanada.org/). This is the exact same technology utilized by the [Source Cooperative read-only data proxy](https://github.com/source-cooperative/data.source.coop). To give you an idea of its proven scalability, this proxy recently served over 1 billion requests and transferred just under 3PB of data in April 2026 alone. (You can read more about these metrics in Jed Sundwall's [recent LinkedIn announcement](https://www.linkedin.com/posts/jedsundwall_source-cooperative-appears-to-have-turned-share-7465709591096360961-uO5P/)).
 
 For data pipelines and cloud-native workflows, standard access protocols are everything. Multistore provides a robust S3-compatible interface, allowing developers, researchers, and data engineers to interact with our hosted datasets using familiar S3 tools and libraries. Whether you are automating data pipelines, querying cloud-optimized formats directly over the network, or syncing large datasets, this endpoint ensures that data retrieval is fast, scalable, and standardized.
 
