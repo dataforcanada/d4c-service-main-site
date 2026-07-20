@@ -72,8 +72,6 @@ Here is a table of some of the datasets created from the current process.
 | Whitehorse | CA-YT | 2019 | Whitehorse | [ca-yt_whitehorse-2019A000556001009_d4c-datapkg-orthoimagery_2019_200mm_v0.1.0-beta](https://source.coop/dataforcanada/d4c-datapkg-orthoimagery/processed/ca-yt_whitehorse-2019A000556001009_d4c-datapkg-orthoimagery_2019_200mm_v0.1.0-beta.pmtiles) | [Download](https://source.coop/dataforcanada/d4c-datapkg-orthoimagery/processed/ca-yt_whitehorse-2019A000556001009_d4c-datapkg-orthoimagery_2019_200mm_v0.1.0-beta.pmtiles) |
 | Ontario | CA-ON | 2024 | Province of Ontario | [ca-on_province_of_ontario-2024A000235_drape_eastern_ontario_orthoimagery_d4c-datapkg-orthoimagery_2024_16cm_v0.1.0-beta.2](https://source.coop/dataforcanada/d4c-datapkg-orthoimagery/processed/ca-on_province_of_ontario-2024A000235_drape_eastern_ontario_orthoimagery_2024_16cm_v0.1.0-beta.pmtiles) | [Download](https://source.coop/dataforcanada/d4c-datapkg-orthoimagery/processed/ca-on_province_of_ontario-2024A000235_drape_eastern_ontario_orthoimagery_d4c-datapkg-orthoimagery_2024_16cm_v0.1.0-beta.2.pmtiles) |
 
-{{< youtube HIzVxsvEa4s >}}
-
 ## The Plan
 
 The objective is to standardize the source datasets used by Data for Canada processes. For instance, Vancouver’s orthoimagery is currently distributed in proprietary formats (MrSID and ECW) that require specialized drivers. We are currently evaluating open alternatives, such as [Cloud Optimized GeoTIFFs](https://cogeo.org/), while ensuring that the conversion process preserves full visual fidelity. Future iterations will also explore the integration of multispectral data.
