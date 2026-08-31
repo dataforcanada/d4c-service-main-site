@@ -28,14 +28,14 @@ flowchart TD
 
     Client -->|"S3 API Request"| Gateway
 
-    Gateway -->|"sourcecooperative bucket"| AWS
+    Gateway -->|"source-cooperative-ca-central-1 bucket"| AWS
     Gateway -->|"backblaze-ca-east-006 bucket"| BB
     Gateway -->|"cloudflare-apac bucket"| CFAPAC
     Gateway -->|"cloudflare-enam bucket"| CFENAM
     Gateway -->|"tigris bucket"| TIGRIS
 
     subgraph AWS ["☁️ Amazon Web Services"]
-        AWSNode["📍 Oregon, United States"]
+        AWSNode["📍 Montreal, QC, Canada"]
     end
 
     subgraph BB ["🔵 Backblaze B2"]
