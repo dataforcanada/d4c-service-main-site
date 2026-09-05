@@ -107,17 +107,21 @@ sidebar:
 
   // ── Data ─────────────────────────────────────────────────────────────────
   const nodes = [
+    /*
     { id: 'smart-node-01', name: 'Smart Node 01', location: 'Toronto, Ontario, Canada', coords: [-79.38, 43.65], specs: '50Gbps / 50Gbps, 950GB Flash Storage', protocol: 'P2P, SSH', jurisdiction: 'Singapore', color: '#9966CC' },
+    */
     { id: 'geo-services-01', name: 'Geo Services 01', location: 'Ottawa, Ontario, Canada', coords: [-75.69, 45.42], specs: '3GBps / 3GBps, 60TB HDD Storage, 14TB Flash Storage', protocol: 'All', jurisdiction: 'Canada', color: '#EA2839' },
     { id: 'vancouver', name: 'Internet Archive Mirror', location: 'Vancouver, Canada', coords: [-123.12, 49.28], protocol: 'HTTP', jurisdiction: 'USA', color: '#002147' },
-    { id: 'source-cooperative-oregon', name: 'Source Cooperative', location: 'Oregon, USA', coords: [-122.68, 45.52], specs: 'AWS S3 (us-west-2), ~50TB HDD Storage', protocol: 'HTTP', jurisdiction: 'USA', color: '#002147' },
+    { id: 'source-cooperative-ca-central', name: 'Source Cooperative', location: 'Montreal, Quebec, Canada', coords: [-73.57, 45.50], specs: 'AWS S3 (ca-central-1), ~50TB HDD Storage', protocol: 'HTTP', jurisdiction: 'USA', color: '#002147' },
     { id: 'r2-enam', name: 'Cloudflare R2 ENAM', location: 'Eastern North America', coords: [-73.94, 40.71], specs: 'Primary Object Storage', protocol: 'HTTP', jurisdiction: 'USA', color: '#002147' },
     { id: 'r2-apac', name: 'Cloudflare R2 APAC', location: 'Asia-Pacific', coords: [103.82, 1.35], specs: 'Primary Object Storage', protocol: 'HTTP', jurisdiction: 'USA', color: '#002147' },
-    { id: 'san-francisco', name: 'The Internet Archive', location: 'San Francisco, California, USA', coords: [-122.42, 37.77], protocol: 'HTTP', jurisdiction: 'USA', color: '#002147' },
+    { id: 'backup-node-01', name: 'Backup Node 01', location: 'Fremont, California, USA', specs: '10Gbps / 10Gbps, 2TB Storage', coords: [-121.99, 37.55], protocol: 'SSH, Multi', jurisdiction: 'USA', color: '#002147' },
+    { id: 'internet-archive-san-francisco', name: 'The Internet Archive', location: 'San Francisco, California, USA', coords: [-122.42, 37.77], protocol: 'HTTP', jurisdiction: 'USA', color: '#002147' },
     { id: 'vps-01', name: 'VPS 01', location: 'Manassas, Virginia, USA', coords: [-77.48, 38.75], specs: '2.5Gbps / 2.5Gbps, 512GB Flash Storage', protocol: 'All', jurisdiction: 'Germany', color: '#FFCC00' },
-    { id: 'backup-node-01', name: 'Backup Node 01', location: 'Fremont, California, USA', specs: '10Gbps / 10Gbps, 2TB Storage', coords: [-121, 40], protocol: 'SSH, Multi', jurisdiction: 'USA', color: '#002147' },
+    /*
     { id: 'smart-node-02', name: 'Smart Node 02', location: 'Amsterdam, Netherlands', coords: [4.90, 52.37], specs: '50Gbps / 50Gbps, 950GB Flash Storage', protocol: 'P2P, SSH', jurisdiction: 'Singapore', color: '#9966CC' },
     { id: 'smart-node-03', name: 'Smart Node 03', location: 'Amsterdam, Netherlands', coords: [4.90, 52.37], specs: '50Gbps / 50Gbps, 6TB HDD Storage', protocol: 'P2P, SSH', jurisdiction: 'Singapore', color: '#9966CC' },
+    */
     { id: 'geneva', name: 'Zenodo', location: 'Geneva, Switzerland', coords: [6.14, 46.20], specs: 'Replicated in Budapest', protocol: 'HTTP', jurisdiction: 'Switzerland', color: '#FFFFFF' },
     { id: 'budapest', name: 'Zenodo Mirror', location: 'Budapest, Hungary', coords: [19.04, 47.50], protocol: 'HTTP', jurisdiction: 'Switzerland', color: '#FFFFFF' },
     { id: 'tigris-ams', name: 'Tigris (Amsterdam)', location: 'Amsterdam, Netherlands', coords: [4.90, 52.37], specs: 'Tigris CDN Region (ams)', protocol: 'HTTP', jurisdiction: 'USA', color: '#002147' },
@@ -134,7 +138,7 @@ sidebar:
   ];
 
   const connections = [
-    { source: 'san-francisco', target: 'vancouver', color: '#002147' },
+    { source: 'internet-archive-san-francisco', target: 'vancouver', color: '#002147' },
     { source: 'geneva', target: 'budapest', color: '#FFFFFF' }
   ];
 
@@ -179,43 +183,66 @@ sidebar:
     .attr('class', 'graticule')
     .attr('d', path);
 
-  // ── Node offset helpers ───────────────────────────────────────────────────
-  const nodesByLocation = {};
+  // ── Node layout ───────────────────────────────────────────────────────────
+  // At this scale plenty of distinct sites project within a few pixels of each
+  // other — the Bay Area, Ashburn and Manassas, the western European hosts — and
+  // some share coordinates outright. Start every node at its true position, then
+  // nudge overlapping pairs apart until each circle is separately visible. This
+  // keeps nodes as close to their real location as legibility allows.
+  const nodeRadius  = 4;
+  const minDistance = nodeRadius * 2 + 1;   // leave a pixel of daylight between circles
+
+  const nodePositions = {};
   nodes.forEach(node => {
-    const key = node.coords.join(',');
-    if (!nodesByLocation[key]) nodesByLocation[key] = [];
-    nodesByLocation[key].push(node);
+    const [x, y] = projection(node.coords);
+    nodePositions[node.id] = { x, y };
   });
 
-  const nodeOffsets = {};
-  Object.values(nodesByLocation).forEach(nodesAtLocation => {
-    if (nodesAtLocation.length === 1) {
-      nodeOffsets[nodesAtLocation[0].id] = { dx: 0, dy: 0 };
-    } else {
-      const radius = 8;
-      nodesAtLocation.forEach((node, i) => {
-        const angle = (i / nodesAtLocation.length) * 2 * Math.PI;
-        nodeOffsets[node.id] = {
-          dx: Math.cos(angle) * radius,
-          dy: Math.sin(angle) * radius
-        };
-      });
+  for (let pass = 0; pass < 100; pass++) {
+    let moved = false;
+
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const a = nodePositions[nodes[i].id];
+        const b = nodePositions[nodes[j].id];
+
+        let dx = b.x - a.x;
+        let dy = b.y - a.y;
+        let distance = Math.hypot(dx, dy);
+
+        // Nodes sharing exact coordinates need a deterministic direction to
+        // separate along; the golden angle keeps successive picks well spread.
+        if (distance === 0) {
+          dx = Math.cos(j * 2.399);
+          dy = Math.sin(j * 2.399);
+          distance = 1;
+        }
+
+        if (distance < minDistance - 0.01) {
+          const shift = (minDistance - distance) / 2 / distance;
+          a.x -= dx * shift;
+          a.y -= dy * shift;
+          b.x += dx * shift;
+          b.y += dy * shift;
+          moved = true;
+        }
+      }
     }
-  });
+
+    if (!moved) break;
+  }
 
   // ── Tooltip ───────────────────────────────────────────────────────────────
   const tooltip = d3.select('.tooltip');
 
-  function showTooltip(event, nodesAtLocation) {
+  function showTooltip(event, node) {
     let html = '';
-    nodesAtLocation.forEach((node, i) => {
-      if (i > 0) html += '<hr style="margin:8px 0;border:none;border-top:1px solid #ccc;">';
-      html += `<div class="tooltip-title">${node.name}</div>`;
-      html += `<div class="tooltip-detail">Location: ${node.location}</div>`;
-      if (node.specs)    html += `<div class="tooltip-detail">Specs: ${node.specs}</div>`;
-      if (node.protocol) html += `<div class="tooltip-detail">Protocol: ${node.protocol}</div>`;
-      html += `<div class="tooltip-detail">Jurisdiction: ${node.jurisdiction}</div>`;
-    });
+    html += `<div class="tooltip-title">${node.name}</div>`;
+    html += `<div class="tooltip-detail">Location: ${node.location}</div>`;
+    if (node.specs)    html += `<div class="tooltip-detail">Specs: ${node.specs}</div>`;
+    if (node.protocol) html += `<div class="tooltip-detail">Protocol: ${node.protocol}</div>`;
+    html += `<div class="tooltip-detail">Jurisdiction: ${node.jurisdiction}</div>`;
+
     tooltip.html(html).classed('visible', true)
       .style('left', (event.pageX + 15) + 'px')
       .style('top',  (event.pageY + 15) + 'px');
@@ -239,13 +266,13 @@ sidebar:
     // Connections
     const connGroup = g.append('g');
     connections.forEach(conn => {
-      const source = nodes.find(n => n.id === conn.source);
-      const target = nodes.find(n => n.id === conn.target);
+      const source = nodePositions[conn.source];
+      const target = nodePositions[conn.target];
       if (source && target) {
-        connGroup.append('path')
-          .datum({ type: 'LineString', coordinates: [source.coords, target.coords] })
+        connGroup.append('line')
           .attr('class', 'connection')
-          .attr('d', path)
+          .attr('x1', source.x).attr('y1', source.y)
+          .attr('x2', target.x).attr('y2', target.y)
           .attr('stroke', conn.color);
       }
     });
@@ -253,18 +280,15 @@ sidebar:
     // Nodes
     const nodeGroup = g.append('g');
     nodes.forEach(node => {
-      const [cx, cy]          = projection(node.coords);
-      const { dx, dy }         = nodeOffsets[node.id];
-      const locationKey        = node.coords.join(',');
-      const nodesAtThisLocation = nodesByLocation[locationKey];
+      const { x, y } = nodePositions[node.id];
 
       nodeGroup.append('circle')
         .attr('class', 'node')
-        .attr('cx', cx + dx)
-        .attr('cy', cy + dy)
-        .attr('r', 4)
+        .attr('cx', x)
+        .attr('cy', y)
+        .attr('r', nodeRadius)
         .attr('fill', node.color)
-        .on('mouseover', (event) => showTooltip(event, nodesAtThisLocation))
+        .on('mouseover', (event) => showTooltip(event, node))
         .on('mouseout',  hideTooltip)
         .on('mousemove', (event) => {
           tooltip
